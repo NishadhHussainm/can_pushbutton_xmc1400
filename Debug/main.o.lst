@@ -1,0 +1,1203 @@
+   1              	 .cpu cortex-m0
+   2              	 .fpu softvfp
+   3              	 .eabi_attribute 20,1
+   4              	 .eabi_attribute 21,1
+   5              	 .eabi_attribute 23,3
+   6              	 .eabi_attribute 24,1
+   7              	 .eabi_attribute 25,1
+   8              	 .eabi_attribute 26,1
+   9              	 .eabi_attribute 30,6
+  10              	 .eabi_attribute 34,0
+  11              	 .eabi_attribute 18,4
+  12              	 .code 16
+  13              	 .file "main.c"
+  14              	 .text
+  15              	.Ltext0:
+  16              	 .cfi_sections .debug_frame
+  17              	 .section .text.XMC_GPIO_ToggleOutput,"ax",%progbits
+  18              	 .align 2
+  19              	 .code 16
+  20              	 .thumb_func
+  22              	XMC_GPIO_ToggleOutput:
+  23              	.LFB124:
+  24              	 .file 1 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc/xmc_gpio.h"
+   1:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+   2:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @file xmc_gpio.h
+   3:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @date 2015-06-20
+   4:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+   5:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @cond
+   6:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *****************************************************************************
+   7:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMClib v2.2.0 - XMC Peripheral Driver Library
+   8:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+   9:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Copyright (c) 2015-2020, Infineon Technologies AG
+  10:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * All rights reserved.
+  11:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  12:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Boost Software License - Version 1.0 - August 17th, 2003
+  13:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  14:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Permission is hereby granted, free of charge, to any person or organization
+  15:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * obtaining a copy of the software and accompanying documentation covered by
+  16:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * this license (the "Software") to use, reproduce, display, distribute,
+  17:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * execute, and transmit the Software, and to prepare derivative works of the
+  18:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Software, and to permit third-parties to whom the Software is furnished to
+  19:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * do so, all subject to the following:
+  20:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  21:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * The copyright notices in the Software and this entire statement, including
+  22:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * the above license grant, this restriction and the following disclaimer,
+  23:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * must be included in all copies of the Software, in whole or in part, and
+  24:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * all derivative works of the Software, unless such copies or derivative
+  25:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * works are solely in the form of machine-executable object code generated by
+  26:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * a source language processor.
+  27:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  28:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  29:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  30:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+  31:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+  32:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+  33:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  34:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * DEALINGS IN THE SOFTWARE.
+  35:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  36:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * To improve the quality of the software, users are encouraged to share
+  37:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * modifications, enhancements or bug fixes with Infineon Technologies AG
+  38:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * at XMCSupport@infineon.com.
+  39:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *****************************************************************************
+  40:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  41:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Change History
+  42:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * --------------
+  43:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  44:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * 2015-02-20:
+  45:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Initial draft<br>
+  46:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Documentation improved <br>
+  47:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  48:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * 2015-06-20:
+  49:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *     - Removed version macros and declaration of GetDriverVersion API
+  50:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  51:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @endcond
+  52:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  53:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  54:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  55:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #ifndef XMC_GPIO_H
+  56:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_H
+  57:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  58:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+  59:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * HEADER FILES
+  60:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+  61:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  62:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc_common.h"
+  63:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  64:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+  65:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @addtogroup XMClib XMC Peripheral Library
+  66:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @{
+  67:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  68:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  69:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+  70:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @addtogroup GPIO
+  71:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @brief General Purpose Input Output (GPIO) driver for the XMC microcontroller family.
+  72:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  73:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * GPIO driver provide a generic and very flexible software interface for all standard digital I/O 
+  74:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Each port slice has individual interfaces for the operation as General Purpose I/O and it furthe
+  75:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * connectivity to the on-chip periphery and the control for the pad characteristics.
+  76:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  77:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * The driver is divided into Input and Output mode.
+  78:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  79:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Input mode features:
+  80:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Configuration structure XMC_GPIO_CONFIG_t and initialization function XMC_GPIO_Init()
+  81:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of weak pull-up or pull-down device. Configuration structure XMC_GPIO_MO
+  82:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC1
+  83:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of input hysteresis. XMC_GPIO_SetInputHysteresis()
+  84:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+  85:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  86:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  87:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Output mode features:
+  88:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of push pull/open drain and Alternate output. Configuration structure XM
+  89:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC4
+  90:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of pad driver strength. Configuration structure XMC_GPIO_OUTPUT_STRENGTH
+  91:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+  92:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  93:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * -# Allows the selection of initial output level. Configuration structure XMC_GPIO_OUTPUT_LEVEL_t
+  94:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+  95:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *@{
+  96:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+  97:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+  98:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+  99:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * MACROS
+ 100:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 101:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 102:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Pos PORT0_IOCR0_PC0_Pos
+ 103:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Msk PORT0_IOCR0_PC0_Msk
+ 104:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 105:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #define PORT_IOCR_PC_Size 				(8U)
+ 106:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 107:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 108:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_CHECK_OUTPUT_LEVEL(level) ((level == XMC_GPIO_OUTPUT_LEVEL_LOW) || \
+ 109:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****                                             (level == XMC_GPIO_OUTPUT_LEVEL_HIGH))
+ 110:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 111:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #define XMC_GPIO_CHECK_HWCTRL(hwctrl) ((hwctrl == XMC_GPIO_HWCTRL_DISABLED) || \
+ 112:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL1) || \
+ 113:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****                                        (hwctrl == XMC_GPIO_HWCTRL_PERIPHERAL2))
+ 114:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 115:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 116:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * ENUMS
+ 117:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 118:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 119:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 120:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 121:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Defines output level of a pin. Use type \a XMC_GPIO_OUTPUT_LEVEL_t for this enum.
+ 122:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 123:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** typedef enum XMC_GPIO_OUTPUT_LEVEL
+ 124:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 125:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_LOW  = 0x10000U, /**<  Reset bit */
+ 126:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_OUTPUT_LEVEL_HIGH = 0x1U, 	/**< Set bit  */
+ 127:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** } XMC_GPIO_OUTPUT_LEVEL_t;
+ 128:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 129:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 130:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Defines direct hardware control characteristics of the pin . Use type \a XMC_GPIO_HWCTRL_t for t
+ 131:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 132:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** typedef enum XMC_GPIO_HWCTRL
+ 133:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 134:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_DISABLED     = 0x0U, /**<  Software control only */
+ 135:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL1  = 0x1U, /**<  HWI0/HWO0 control path can override the software confi
+ 136:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_GPIO_HWCTRL_PERIPHERAL2  = 0x2U  /**<  HWI1/HWO1 control path can override the software confi
+ 137:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** } XMC_GPIO_HWCTRL_t;
+ 138:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 139:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 140:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * DEVICE FAMILY EXTENSIONS
+ 141:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 142:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 143:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #if UC_FAMILY == XMC1
+ 144:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc1_gpio.h"
+ 145:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #elif UC_FAMILY == XMC4
+ 146:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #include "xmc4_gpio.h"
+ 147:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #else
+ 148:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #error "xmc_gpio.h: family device not supported"
+ 149:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #endif
+ 150:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 151:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**************************************************************************************************
+ 152:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * API PROTOTYPES
+ 153:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  **************************************************************************************************
+ 154:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 155:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #ifdef __cplusplus
+ 156:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** extern "C" {
+ 157:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** #endif
+ 158:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 159:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 160:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 161:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	  Constant pointer pointing to GPIO port, to access port registers like Pn_OUT,Pn_O
+ 162:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	  Port pin number.
+ 163:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  config GPIO configuration data structure. Refer data structure @ref XMC_GPIO_CONFIG_t fo
+ 164:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 165:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 166:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 167:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 168:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC1
+ 169:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,hysteresis, push pull
+ 170:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for a selected \a po
+ 171:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \a config provides selected I/O settings. It configures hardware registers Pn_IOCR,Pn_OUT, Pn_OM
+ 172:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+ 173:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \if XMC4
+ 174:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Initializes input / output mode settings like, pull up / pull down devices,push pull /open drain
+ 175:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Also configures alternate function outputs and clears hardware port control for selected \a port
+ 176:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * It configures hardware registers Pn_IOCR,Pn_OUT,Pn_OMR,Pn_PDISC and Pn_PDR.\n
+ 177:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \endif
+ 178:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 179:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 180:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *  None
+ 181:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 182:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 183:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * This API is called in definition of DAVE_init by code generation and therefore should not be exp
+ 184:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * for the normal operation. Use other APIs only after DAVE_init is called successfully (returns DA
+ 185:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 186:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 187:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 188:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 189:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 190:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** void XMC_GPIO_Init(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_CONFIG_t *const c
+ 191:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 192:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 193:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 194:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	Constant pointer pointing to GPIO port, to access hardware register Pn_IOCR.
+ 195:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	Port pin number.
+ 196:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  mode input / output functionality selection. Refer @ref XMC_GPIO_MODE_t for valid values
+ 197:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 198:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 199:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 200:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 201:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Sets digital input and output driver functionality and characteristics of a GPIO port pin. It co
+ 202:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * registers Pn_IOCR. \a mode is initially configured during initialization in XMC_GPIO_Init(). Cal
+ 203:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * the port direction functionality as needed later in the program.
+ 204:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 205:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 206:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *  None
+ 207:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 208:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 209:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 210:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** void XMC_GPIO_SetMode(XMC_GPIO_PORT_t *const port, const uint8_t pin, const XMC_GPIO_MODE_t mode);
+ 211:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 212:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 213:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 214:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 215:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	 Constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 216:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	 Port pin number.
+ 217:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  level output level selection. Refer @ref XMC_GPIO_OUTPUT_LEVEL_t for valid values.
+ 218:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 219:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 220:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 221:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 222:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Set port pin output level to high or low.It configures hardware registers Pn_OMR.\a level is ini
+ 223:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * configured during initialization in XMC_GPIO_Init(). Call this API to alter output level as need
+ 224:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 225:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 226:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *  XMC_GPIO_SetOutputHigh(), XMC_GPIO_SetOutputLow().
+ 227:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 228:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 229:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 230:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 231:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 232:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 233:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 234:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLevel(XMC_GPIO_PORT_t *const port, const uint8_t pin, const 
+ 235:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 236:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 237:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLevel: Invalid output level", XMC_GPIO_CHECK_OUTPUT_LEVEL(level));
+ 238:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 239:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = (uint32_t)level << pin;
+ 240:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 241:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 242:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 243:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 244:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 245:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	Port pin number.
+ 246:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 247:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 248:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 249:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 250:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *  Sets port pin output to high. It configures hardware registers Pn_OMR.
+ 251:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 252:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *  \par<b>Related APIs:</b><BR>
+ 253:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *  XMC_GPIO_SetOutputLow()
+ 254:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 255:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 256:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().\n
+ 257:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 258:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 259:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 260:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 261:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputHigh(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 262:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 263:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputHigh: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 264:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 265:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = (uint32_t)0x1U << pin;
+ 266:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 267:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 268:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 269:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 270:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  port	constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 271:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param  pin	port pin number.
+ 272:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 273:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return  None
+ 274:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 275:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Description:</b><br>
+ 276:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Sets port pin output to low. It configures hardware registers Pn_OMR.\n
+ 277:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 278:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>>
+ 279:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMC_GPIO_SetOutputHigh()
+ 280:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 281:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Note:</b><br>
+ 282:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode().
+ 283:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Register Pn_OMR is virtual and does not contain any flip-flop. A read action delivers the value 
+ 284:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 285:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 286:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 287:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_SetOutputLow(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 288:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+ 289:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_SetOutputLow: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 290:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 291:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = 0x10000U << pin;
+ 292:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** }
+ 293:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 294:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 295:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 296:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param port constant pointer pointing to GPIO port, to access hardware register Pn_OMR.
+ 297:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param pin  port pin number.
+ 298:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 299:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return None
+ 300:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 301:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Description:</b><br>
+ 302:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Configures port pin output to Toggle. It configures hardware registers Pn_OMR.
+ 303:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 304:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 305:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * XMC_GPIO_SetOutputHigh(), XMC_GPIO_SetOutputLow().
+ 306:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 307:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 308:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to output mode using XMC_GPIO_SetMode(). Regis
+ 309:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * and does not contain any flip-flop. A read action delivers the value of 0.
+ 310:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 311:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 312:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 313:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE void XMC_GPIO_ToggleOutput(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 314:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+  25              	 .loc 1 314 0
+  26              	 .cfi_startproc
+  27 0000 80B5     	 push {r7,lr}
+  28              	.LCFI0:
+  29              	 .cfi_def_cfa_offset 8
+  30              	 .cfi_offset 7,-8
+  31              	 .cfi_offset 14,-4
+  32 0002 82B0     	 sub sp,sp,#8
+  33              	.LCFI1:
+  34              	 .cfi_def_cfa_offset 16
+  35 0004 00AF     	 add r7,sp,#0
+  36              	.LCFI2:
+  37              	 .cfi_def_cfa_register 7
+  38 0006 7860     	 str r0,[r7,#4]
+  39 0008 0A1C     	 mov r2,r1
+  40 000a FB1C     	 add r3,r7,#3
+  41 000c 1A70     	 strb r2,[r3]
+ 315:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_ToggleOutput: Invalid port", XMC_GPIO_CHECK_OUTPUT_PORT(port));
+ 316:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 317:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   port->OMR = 0x10001U << pin;
+  42              	 .loc 1 317 0
+  43 000e FB1C     	 add r3,r7,#3
+  44 0010 1B78     	 ldrb r3,[r3]
+  45 0012 034A     	 ldr r2,.L2
+  46 0014 9A40     	 lsl r2,r2,r3
+  47 0016 7B68     	 ldr r3,[r7,#4]
+  48 0018 5A60     	 str r2,[r3,#4]
+ 318:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** }
+  49              	 .loc 1 318 0
+  50 001a BD46     	 mov sp,r7
+  51 001c 02B0     	 add sp,sp,#8
+  52              	 
+  53 001e 80BD     	 pop {r7,pc}
+  54              	.L3:
+  55              	 .align 2
+  56              	.L2:
+  57 0020 01000100 	 .word 65537
+  58              	 .cfi_endproc
+  59              	.LFE124:
+  61              	 .section .text.XMC_GPIO_GetInput,"ax",%progbits
+  62              	 .align 2
+  63              	 .code 16
+  64              	 .thumb_func
+  66              	XMC_GPIO_GetInput:
+  67              	.LFB125:
+ 319:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 320:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** /**
+ 321:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 322:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param port constant pointer pointing to GPIO port, to access hardware register Pn_IN.
+ 323:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @param pin  Port pin number.
+ 324:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 325:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * @return uint32_t pin logic level status.
+ 326:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 327:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *\par<b>Description:</b><br>
+ 328:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Reads the Pn_IN register and returns the current logical value at the GPIO pin.
+ 329:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 330:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Related APIs:</b><BR>
+ 331:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * None
+ 332:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 333:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * \par<b>Note:</b><br>
+ 334:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  * Prior to this api, user has to configure port pin to input mode using XMC_GPIO_SetMode().
+ 335:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  *
+ 336:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****  */
+ 337:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 338:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** __STATIC_INLINE uint32_t XMC_GPIO_GetInput(XMC_GPIO_PORT_t *const port, const uint8_t pin)
+ 339:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** {
+  68              	 .loc 1 339 0
+  69              	 .cfi_startproc
+  70 0000 80B5     	 push {r7,lr}
+  71              	.LCFI3:
+  72              	 .cfi_def_cfa_offset 8
+  73              	 .cfi_offset 7,-8
+  74              	 .cfi_offset 14,-4
+  75 0002 82B0     	 sub sp,sp,#8
+  76              	.LCFI4:
+  77              	 .cfi_def_cfa_offset 16
+  78 0004 00AF     	 add r7,sp,#0
+  79              	.LCFI5:
+  80              	 .cfi_def_cfa_register 7
+  81 0006 7860     	 str r0,[r7,#4]
+  82 0008 0A1C     	 mov r2,r1
+  83 000a FB1C     	 add r3,r7,#3
+  84 000c 1A70     	 strb r2,[r3]
+ 340:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   XMC_ASSERT("XMC_GPIO_GetInput: Invalid port", XMC_GPIO_CHECK_PORT(port));
+ 341:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** 
+ 342:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h ****   return (((port->IN) >> pin) & 0x1U);
+  85              	 .loc 1 342 0
+  86 000e 7B68     	 ldr r3,[r7,#4]
+  87 0010 5A6A     	 ldr r2,[r3,#36]
+  88 0012 FB1C     	 add r3,r7,#3
+  89 0014 1B78     	 ldrb r3,[r3]
+  90 0016 DA40     	 lsr r2,r2,r3
+  91 0018 131C     	 mov r3,r2
+  92 001a 0122     	 mov r2,#1
+  93 001c 1340     	 and r3,r2
+ 343:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc\xmc_gpio.h **** }
+  94              	 .loc 1 343 0
+  95 001e 181C     	 mov r0,r3
+  96 0020 BD46     	 mov sp,r7
+  97 0022 02B0     	 add sp,sp,#8
+  98              	 
+  99 0024 80BD     	 pop {r7,pc}
+ 100              	 .cfi_endproc
+ 101              	.LFE125:
+ 103 0026 C046     	 .section .text.DIGITAL_IO_ToggleOutput,"ax",%progbits
+ 104              	 .align 2
+ 105              	 .code 16
+ 106              	 .thumb_func
+ 108              	DIGITAL_IO_ToggleOutput:
+ 109              	.LFB139:
+ 110              	 .file 2 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO/digital_io.h"
+   1:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /*
+   2:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+   3:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @file digital_io.h
+   4:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @date 2021-01-08
+   5:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+   6:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * NOTE:
+   7:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * This file is generated by DAVE. Any manual modification done to this file will be lost when the 
+   8:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+   9:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @cond
+  10:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  11:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * DIGITAL_IO v4.0.18 - The DIGITAL_IO APP is used to configure a port pin as digital Input/Output.
+  12:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  13:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * Copyright (c) 2015-2020, Infineon Technologies AG
+  14:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * All rights reserved.
+  15:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  16:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * Redistribution and use in source and binary forms, with or without modification,are permitted pr
+  17:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * following conditions are met:
+  18:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  19:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   Redistributions of source code must retain the above copyright notice, this list of conditions
+  20:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   disclaimer.
+  21:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  22:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   Redistributions in binary form must reproduce the above copyright notice, this list of conditi
+  23:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   following disclaimer in the documentation and/or other materials provided with the distributio
+  24:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  25:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   Neither the name of the copyright holders nor the names of its contributors may be used to end
+  26:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *   products derived from this software without specific prior written permission.
+  27:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  28:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR I
+  29:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTI
+  30:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE  FOR ANY DIRECT, IN
+  31:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBS
+  32:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THE
+  33:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY
+  34:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  35:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  36:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * To improve the quality of the software, users are encouraged to share modifications, enhancement
+  37:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * with Infineon Technologies AG (dave@infineon.com).
+  38:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  39:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  40:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * Change History
+  41:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * --------------
+  42:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  43:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-02-16
+  44:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Initial version
+  45:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  46:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-04-22
+  47:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - XMC_ASSERT is added in static inline functions.<br>
+  48:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  49:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-06-20
+  50:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Version check added for XMCLib dependency.<br>
+  51:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  52:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2015-12-22
+  53:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Added hardware controlled IO feature.
+  54:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2016-07-08:
+  55:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Fixed incorrect case for an included header.<br>
+  56:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * 2021-01-08:
+  57:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *     - Modified check for minimum XMCLib version
+  58:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  59:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * @endcond
+  60:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  *
+  61:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  */
+  62:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  63:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+  64:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * HEADER FILES
+  65:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  66:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  67:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #ifndef DIGITAL_IO_H
+  68:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_H
+  69:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  70:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #include "xmc_gpio.h"
+  71:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #include "DAVE_Common.h"
+  72:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #include "digital_io_conf.h"
+  73:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  74:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+  75:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * MACROS
+  76:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  77:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_XMC_LIB_MAJOR_VERSION 2
+  78:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_XMC_LIB_MINOR_VERSION 0
+  79:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #define DIGITAL_IO_XMC_LIB_PATCH_VERSION 0
+  80:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  81:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #if !((XMC_LIB_MAJOR_VERSION > DIGITAL_IO_XMC_LIB_MAJOR_VERSION) ||\
+  82:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****       ((XMC_LIB_MAJOR_VERSION == DIGITAL_IO_XMC_LIB_MAJOR_VERSION) && (XMC_LIB_MINOR_VERSION > DIGI
+  83:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****       ((XMC_LIB_MAJOR_VERSION == DIGITAL_IO_XMC_LIB_MAJOR_VERSION) && (XMC_LIB_MINOR_VERSION == DIG
+  84:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #error "DIGITAL_IO requires XMC Peripheral Library v2.0.0 or higher"
+  85:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #endif
+  86:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  87:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  /*************************************************************************************************
+  88:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * ENUMS
+  89:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+  90:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  91:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+  92:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @ingroup DIGITAL_IO_enumerations
+  93:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @{
+  94:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+  95:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+  96:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+  97:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Initialization status of DIGITAL_IO APP.
+  98:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+  99:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** typedef enum DIGITAL_IO_STATUS
+ 100:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 101:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   DIGITAL_IO_STATUS_OK = 0U,/**< 0=Status OK */
+ 102:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   DIGITAL_IO_STATUS_FAILURE = 1U/**< 1=Status Failed */
+ 103:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** } DIGITAL_IO_STATUS_t;
+ 104:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 105:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 106:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @}
+ 107:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 108:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 109:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+ 110:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * DATA STRUCTURES
+ 111:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+ 112:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 113:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @ingroup DIGITAL_IO_datastructures
+ 114:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @{
+ 115:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 116:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 117:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 118:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Initialization data structure of DIGITAL_IO APP
+ 119:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 120:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** typedef struct DIGITAL_IO
+ 121:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 122:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_PORT_t *const gpio_port;             /**< port number */
+ 123:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   const XMC_GPIO_CONFIG_t gpio_config;          /**< mode, initial output level and pad driver stre
+ 124:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   const uint8_t gpio_pin;                       /**< pin number */
+ 125:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   const XMC_GPIO_HWCTRL_t hwctrl;               /**< Hardware port control */
+ 126:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** } DIGITAL_IO_t;
+ 127:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 128:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 129:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 130:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @}
+ 131:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 132:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 133:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 134:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**************************************************************************************************
+ 135:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  * API Prototypes
+ 136:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****  **************************************************************************************************
+ 137:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 138:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 139:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #ifdef __cplusplus
+ 140:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** extern "C" {
+ 141:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** #endif
+ 142:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 143:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 144:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @ingroup DIGITAL_IO_apidoc
+ 145:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @{
+ 146:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 147:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 148:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 149:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 150:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 151:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Get DIGITAL_IO APP version
+ 152:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return DAVE_APP_VERSION_t APP version information (major, minor and patch number)
+ 153:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 154:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description: </b><br>
+ 155:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * The function can be used to check application software compatibility with a
+ 156:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * specific version of the APP.
+ 157:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 158:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 159:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 160:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 161:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h"
+ 162:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 163:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 164:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 165:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t init_status;
+ 166:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_APP_VERSION_t version;
+ 167:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 168:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   // Initialize DIGITAL_IO APP:
+ 169:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   // DIGITAL_IO_Init() is called from within DAVE_Init().
+ 170:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   init_status = DAVE_Init();
+ 171:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(init_status == DAVE_STATUS_SUCCESS)
+ 172:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 173:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     version = DIGITAL_IO_GetAppVersion();
+ 174:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     if (version.major != 4U) {
+ 175:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     // Probably, not the right version.
+ 176:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 177:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 178:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 179:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     // More code here
+ 180:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1) {
+ 181:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 182:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 183:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     return (1);
+ 184:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  }
+ 185:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @endcode<BR>
+ 186:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 187:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 188:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** DAVE_APP_VERSION_t DIGITAL_IO_GetAppVersion(void);
+ 189:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 190:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 191:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 192:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to initialize the port pin as per UI settings.
+ 193:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 194:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return DIGITAL_IO_STATUS_t DIGITAL_IO APP status. Refer @ref DIGITAL_IO_STATUS_t structure for d
+ 195:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 196:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 197:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function initializes GPIO port registers IOCR,PDISC,OMR,PDR/PHCR to configure pin direction,
+ 198:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * and pad driver strength/hysteresis.
+ 199:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 200:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 201:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * None
+ 202:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 203:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 204:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 205:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 206:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 207:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 208:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 209:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 210:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_In
+ 211:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 212:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 213:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 214:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 215:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 216:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 217:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 218:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1U)
+ 219:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 220:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 221:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 222:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 223:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 224:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 225:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 226:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return 1U;
+ 227:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  }
+ 228:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 229:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 230:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 231:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** DIGITAL_IO_STATUS_t DIGITAL_IO_Init(const DIGITAL_IO_t *const handler);
+ 232:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 233:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 234:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 235:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to set port pin high.
+ 236:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 237:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return None
+ 238:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 239:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 240:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function configures port output modification register Pn_OMR, to make port pin to high level
+ 241:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 242:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 243:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  DIGITAL_IO_SetOutputLow()
+ 244:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 245:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 246:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 247:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 248:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 249:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 250:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 251:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 252:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_In
+ 253:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 254:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 255:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 256:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 257:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 258:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 259:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 260:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1U)
+ 261:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 262:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 263:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 264:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 265:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DIGITAL_IO_SetOutputHigh(&DIGITAL_IO_0);
+ 266:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 267:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 268:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     // Add application code here
+ 269:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 270:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 271:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 272:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 273:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 274:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 275:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 276:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE void DIGITAL_IO_SetOutputHigh(const DIGITAL_IO_t *const handler)
+ 277:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 278:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_SetOutputHigh: handler null pointer", handler != NULL);
+ 279:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_SetOutputHigh(handler->gpio_port, handler->gpio_pin);
+ 280:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 281:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 282:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 283:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to reset port pin.
+ 284:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 285:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return None
+ 286:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 287:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 288:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function configures port output modification register Pn_OMR, to make port pin to low level.
+ 289:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 290:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 291:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * DIGITAL_IO_SetOutputHigh()
+ 292:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 293:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 294:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 295:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 296:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 297:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  int main(void)
+ 298:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  {
+ 299:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    DAVE_STATUS_t status;
+ 300:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_I
+ 301:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    if(status == DAVE_STATUS_SUCCESS)
+ 302:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    {
+ 303:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      XMC_DEBUG("DAVE Apps initialization success\n");
+ 304:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    }
+ 305:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    else
+ 306:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    {
+ 307:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 308:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      while(1U)
+ 309:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      {
+ 310:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      }
+ 311:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    }
+ 312:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    //Placeholder for user application code. The while loop below can be replaced with user applic
+ 313:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    DIGITAL_IO_SetOutputLow(&DIGITAL_IO_0);
+ 314:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    while(1U)
+ 315:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    {
+ 316:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      // Add application code here
+ 317:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *    }
+ 318:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 319:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 320:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 321:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 322:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 323:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 324:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE void DIGITAL_IO_SetOutputLow(const DIGITAL_IO_t *const handler)
+ 325:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 326:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_SetOutputLow: handler null pointer", handler != NULL);
+ 327:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_SetOutputLow(handler->gpio_port,handler->gpio_pin);
+ 328:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 329:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 330:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 331:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to Toggle port pin.
+ 332:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 333:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return None
+ 334:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 335:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 336:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function configures port output modification register Pn_OMR, to toggle port pin.
+ 337:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 338:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 339:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * DIGITAL_IO_SetOutputLow(), DIGITAL_IO_SetOutputHigh()
+ 340:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 341:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 342:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 343:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 344:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 345:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 346:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 347:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 348:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 349:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   uint32_t delay_count;;
+ 350:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();  //(DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_In
+ 351:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 352:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 353:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 354:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 355:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 356:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 357:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 358:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      while(1U)
+ 359:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      {
+ 360:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      }
+ 361:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 362:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 363:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 364:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 365:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      DIGITAL_IO_ToggleOutput(&DIGITAL_IO_0); //toggles : 1 -> 0 (if initial output level is logic
+ 366:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      //Add application code here
+ 367:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      for(delay_count = 0;delay_count<0xfffff;delay_count++);
+ 368:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      DIGITAL_IO_ToggleOutput(&DIGITAL_IO_0); //toggles : 0 -> 1
+ 369:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      //Add application code here
+ 370:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *      for(delay_count = 0;delay_count<0xfffff;delay_count++);
+ 371:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 372:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 373:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 374:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 375:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 376:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 377:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE void DIGITAL_IO_ToggleOutput(const DIGITAL_IO_t *const handler)
+ 378:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 111              	 .loc 2 378 0
+ 112              	 .cfi_startproc
+ 113 0000 80B5     	 push {r7,lr}
+ 114              	.LCFI6:
+ 115              	 .cfi_def_cfa_offset 8
+ 116              	 .cfi_offset 7,-8
+ 117              	 .cfi_offset 14,-4
+ 118 0002 82B0     	 sub sp,sp,#8
+ 119              	.LCFI7:
+ 120              	 .cfi_def_cfa_offset 16
+ 121 0004 00AF     	 add r7,sp,#0
+ 122              	.LCFI8:
+ 123              	 .cfi_def_cfa_register 7
+ 124 0006 7860     	 str r0,[r7,#4]
+ 379:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_ToggleOutput: handler null pointer", handler != NULL);
+ 380:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_GPIO_ToggleOutput(handler->gpio_port, handler->gpio_pin);
+ 125              	 .loc 2 380 0
+ 126 0008 7B68     	 ldr r3,[r7,#4]
+ 127 000a 1A68     	 ldr r2,[r3]
+ 128 000c 7B68     	 ldr r3,[r7,#4]
+ 129 000e 1B7B     	 ldrb r3,[r3,#12]
+ 130 0010 101C     	 mov r0,r2
+ 131 0012 191C     	 mov r1,r3
+ 132 0014 FFF7FEFF 	 bl XMC_GPIO_ToggleOutput
+ 381:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 133              	 .loc 2 381 0
+ 134 0018 BD46     	 mov sp,r7
+ 135 001a 02B0     	 add sp,sp,#8
+ 136              	 
+ 137 001c 80BD     	 pop {r7,pc}
+ 138              	 .cfi_endproc
+ 139              	.LFE139:
+ 141 001e C046     	 .section .text.DIGITAL_IO_GetInput,"ax",%progbits
+ 142              	 .align 2
+ 143              	 .code 16
+ 144              	 .thumb_func
+ 146              	DIGITAL_IO_GetInput:
+ 147              	.LFB140:
+ 382:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 383:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** /**
+ 384:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @brief Function to read input level of port pin.
+ 385:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @param handler Pointer pointing to APP data structure. Refer @ref DIGITAL_IO_t for details.
+ 386:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @return uint32_t input logic level. Range:0-1
+ 387:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 388:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Description:</b><br>
+ 389:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * This function reads the Pn_IN register and returns the current logical value at the GPIO pin.
+ 390:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 391:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * \par<b>Related APIs:</b><BR>
+ 392:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  None
+ 393:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 394:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * Example Usage:
+ 395:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * @code
+ 396:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * #include "DAVE.h" //Declarations from DAVE Code Generation (includes SFR declaration)
+ 397:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *
+ 398:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * int main(void)
+ 399:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * {
+ 400:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   DAVE_STATUS_t status;
+ 401:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   uint32_t pin_status;
+ 402:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   status = DAVE_Init();   // (DAVE_STATUS_t)DIGITAL_IO_Init(&DIGITAL_IO_0) is called within DAVE_
+ 403:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   if(status == DAVE_STATUS_SUCCESS)
+ 404:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 405:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG("DAVE Apps initialization success\n");
+ 406:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 407:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   else
+ 408:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 409:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     XMC_DEBUG(("DAVE Apps initialization failed with status %d\n", status));
+ 410:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     while(1U)
+ 411:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 412:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 413:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 414:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   //Placeholder for user application code. The while loop below can be replaced with user applica
+ 415:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   while(1U)
+ 416:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   {
+ 417:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     pin_status = DIGITAL_IO_GetInput(&DIGITAL_IO_0);
+ 418:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     if(pin_status == 1)
+ 419:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 420:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *       // Add application code here
+ 421:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 422:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     else
+ 423:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     {
+ 424:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *       // Add application code here
+ 425:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *     }
+ 426:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   }
+ 427:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *   return (1);
+ 428:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** * }
+ 429:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** *  @endcode
+ 430:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** */
+ 431:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** 
+ 432:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** __STATIC_INLINE uint32_t DIGITAL_IO_GetInput(const DIGITAL_IO_t *const handler)
+ 433:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** {
+ 148              	 .loc 2 433 0
+ 149              	 .cfi_startproc
+ 150 0000 80B5     	 push {r7,lr}
+ 151              	.LCFI9:
+ 152              	 .cfi_def_cfa_offset 8
+ 153              	 .cfi_offset 7,-8
+ 154              	 .cfi_offset 14,-4
+ 155 0002 82B0     	 sub sp,sp,#8
+ 156              	.LCFI10:
+ 157              	 .cfi_def_cfa_offset 16
+ 158 0004 00AF     	 add r7,sp,#0
+ 159              	.LCFI11:
+ 160              	 .cfi_def_cfa_register 7
+ 161 0006 7860     	 str r0,[r7,#4]
+ 434:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   XMC_ASSERT("DIGITAL_IO_GetInput: handler null pointer", handler != NULL);
+ 435:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h ****   return XMC_GPIO_GetInput(handler->gpio_port, handler->gpio_pin);
+ 162              	 .loc 2 435 0
+ 163 0008 7B68     	 ldr r3,[r7,#4]
+ 164 000a 1A68     	 ldr r2,[r3]
+ 165 000c 7B68     	 ldr r3,[r7,#4]
+ 166 000e 1B7B     	 ldrb r3,[r3,#12]
+ 167 0010 101C     	 mov r0,r2
+ 168 0012 191C     	 mov r1,r3
+ 169 0014 FFF7FEFF 	 bl XMC_GPIO_GetInput
+ 170 0018 031C     	 mov r3,r0
+ 436:C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO\digital_io.h **** }
+ 171              	 .loc 2 436 0
+ 172 001a 181C     	 mov r0,r3
+ 173 001c BD46     	 mov sp,r7
+ 174 001e 02B0     	 add sp,sp,#8
+ 175              	 
+ 176 0020 80BD     	 pop {r7,pc}
+ 177              	 .cfi_endproc
+ 178              	.LFE140:
+ 180 0022 C046     	 .section .text.main,"ax",%progbits
+ 181              	 .align 2
+ 182              	 .global main
+ 183              	 .code 16
+ 184              	 .thumb_func
+ 186              	main:
+ 187              	.LFB199:
+ 188              	 .file 3 "../main.c"
+   1:../main.c     **** 
+   2:../main.c     **** 
+   3:../main.c     **** #include "DAVE.h"                 //Declarations from DAVE Code Generation (includes SFR declaratio
+   4:../main.c     **** 
+   5:../main.c     **** 
+   6:../main.c     **** 
+   7:../main.c     **** int main(void)
+   8:../main.c     **** {
+ 189              	 .loc 3 8 0
+ 190              	 .cfi_startproc
+ 191 0000 90B5     	 push {r4,r7,lr}
+ 192              	.LCFI12:
+ 193              	 .cfi_def_cfa_offset 12
+ 194              	 .cfi_offset 4,-12
+ 195              	 .cfi_offset 7,-8
+ 196              	 .cfi_offset 14,-4
+ 197 0002 83B0     	 sub sp,sp,#12
+ 198              	.LCFI13:
+ 199              	 .cfi_def_cfa_offset 24
+ 200 0004 00AF     	 add r7,sp,#0
+ 201              	.LCFI14:
+ 202              	 .cfi_def_cfa_register 7
+   9:../main.c     ****   DAVE_STATUS_t status;
+  10:../main.c     **** 
+  11:../main.c     ****   status = DAVE_Init();           /* Initialization of DAVE APPs  */
+ 203              	 .loc 3 11 0
+ 204 0006 FC1D     	 add r4,r7,#7
+ 205 0008 FFF7FEFF 	 bl DAVE_Init
+ 206 000c 031C     	 mov r3,r0
+ 207 000e 2370     	 strb r3,[r4]
+  12:../main.c     **** 
+  13:../main.c     ****   if (status != DAVE_STATUS_SUCCESS)
+ 208              	 .loc 3 13 0
+ 209 0010 FB1D     	 add r3,r7,#7
+ 210 0012 1B78     	 ldrb r3,[r3]
+ 211 0014 002B     	 cmp r3,#0
+ 212 0016 00D0     	 beq .L10
+ 213              	.L11:
+  14:../main.c     ****   {
+  15:../main.c     ****     /* Placeholder for error handler code. The while loop below can be replaced with an user error 
+  16:../main.c     ****     XMC_DEBUG("DAVE APPs initialization failed\n");
+  17:../main.c     **** 
+  18:../main.c     ****     while(1U)
+  19:../main.c     ****     {
+  20:../main.c     **** 
+  21:../main.c     ****     }
+ 214              	 .loc 3 21 0 discriminator 1
+ 215 0018 FEE7     	 b .L11
+ 216              	.L10:
+  22:../main.c     ****   }
+  23:../main.c     **** 
+  24:../main.c     ****   /* Placeholder for user application code. The while loop below can be replaced with user applicat
+  25:../main.c     ****   while(1U)
+  26:../main.c     ****   {
+  27:../main.c     **** 
+  28:../main.c     ****   }
+ 217              	 .loc 3 28 0 discriminator 2
+ 218 001a FEE7     	 b .L10
+ 219              	 .cfi_endproc
+ 220              	.LFE199:
+ 222              	 .section .text.IRQ0_Handler,"ax",%progbits
+ 223              	 .align 2
+ 224              	 .global IRQ0_Handler
+ 225              	 .code 16
+ 226              	 .thumb_func
+ 228              	IRQ0_Handler:
+ 229              	.LFB200:
+  29:../main.c     **** }
+  30:../main.c     **** void Can_TX(void)
+  31:../main.c     **** {
+ 230              	 .loc 3 31 0
+ 231              	 .cfi_startproc
+ 232 0000 80B5     	 push {r7,lr}
+ 233              	.LCFI15:
+ 234              	 .cfi_def_cfa_offset 8
+ 235              	 .cfi_offset 7,-8
+ 236              	 .cfi_offset 14,-4
+ 237 0002 82B0     	 sub sp,sp,#8
+ 238              	.LCFI16:
+ 239              	 .cfi_def_cfa_offset 16
+ 240 0004 00AF     	 add r7,sp,#0
+ 241              	.LCFI17:
+ 242              	 .cfi_def_cfa_register 7
+  32:../main.c     **** 
+  33:../main.c     **** CAN_NODE_STATUS_t status_1; // variable for struct
+  34:../main.c     **** const CAN_NODE_t *HandlePtr1 = &CAN_NODE_0;
+ 243              	 .loc 3 34 0
+ 244 0006 204B     	 ldr r3,.L16
+ 245 0008 7B60     	 str r3,[r7,#4]
+  35:../main.c     **** 
+  36:../main.c     **** uint8_t can_data_arr[1]={0};
+ 246              	 .loc 3 36 0
+ 247 000a 3B1C     	 mov r3,r7
+ 248 000c 0022     	 mov r2,#0
+ 249 000e 1A70     	 strb r2,[r3]
+  37:../main.c     **** 
+  38:../main.c     ****     if((DIGITAL_IO_GetInput(&DIGITAL_IO_0)) == 1)
+ 250              	 .loc 3 38 0
+ 251 0010 1E4B     	 ldr r3,.L16+4
+ 252 0012 181C     	 mov r0,r3
+ 253 0014 FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 254 0018 031E     	 sub r3,r0,#0
+ 255 001a 012B     	 cmp r3,#1
+ 256 001c 13D1     	 bne .L13
+  39:../main.c     ****     		  {
+  40:../main.c     ****     			  DIGITAL_IO_ToggleOutput(&DIGITAL_IO_2);
+ 257              	 .loc 3 40 0
+ 258 001e 1C4B     	 ldr r3,.L16+8
+ 259 0020 181C     	 mov r0,r3
+ 260 0022 FFF7FEFF 	 bl DIGITAL_IO_ToggleOutput
+  41:../main.c     **** 
+  42:../main.c     ****     			  can_data_arr[1] = 1;
+ 261              	 .loc 3 42 0
+ 262 0026 3B1C     	 mov r3,r7
+ 263 0028 0122     	 mov r2,#1
+ 264 002a 5A70     	 strb r2,[r3,#1]
+  43:../main.c     **** 
+  44:../main.c     ****     			  (CAN_NODE_STATUS_t)CAN_NODE_MO_UpdateData(HandlePtr1->lmobj_ptr[0],can_data_arr);
+ 265              	 .loc 3 44 0
+ 266 002c 7B68     	 ldr r3,[r7,#4]
+ 267 002e DA68     	 ldr r2,[r3,#12]
+ 268 0030 3B1C     	 mov r3,r7
+ 269 0032 101C     	 mov r0,r2
+ 270 0034 191C     	 mov r1,r3
+ 271 0036 FFF7FEFF 	 bl CAN_NODE_MO_UpdateData
+  45:../main.c     ****     		  CAN_NODE_MO_Transmit(HandlePtr1->lmobj_ptr[0]);
+ 272              	 .loc 3 45 0
+ 273 003a 7B68     	 ldr r3,[r7,#4]
+ 274 003c DB68     	 ldr r3,[r3,#12]
+ 275 003e 181C     	 mov r0,r3
+ 276 0040 FFF7FEFF 	 bl CAN_NODE_MO_Transmit
+ 277 0044 1DE0     	 b .L12
+ 278              	.L13:
+  46:../main.c     **** 
+  47:../main.c     ****     		  }
+  48:../main.c     ****     else if((DIGITAL_IO_GetInput(&DIGITAL_IO_1)) == 1)
+ 279              	 .loc 3 48 0
+ 280 0046 134B     	 ldr r3,.L16+12
+ 281 0048 181C     	 mov r0,r3
+ 282 004a FFF7FEFF 	 bl DIGITAL_IO_GetInput
+ 283 004e 031E     	 sub r3,r0,#0
+ 284 0050 012B     	 cmp r3,#1
+ 285 0052 13D1     	 bne .L15
+  49:../main.c     ****     		  {
+  50:../main.c     **** 
+  51:../main.c     **** 
+  52:../main.c     ****     			  DIGITAL_IO_ToggleOutput(&DIGITAL_IO_3);
+ 286              	 .loc 3 52 0
+ 287 0054 104B     	 ldr r3,.L16+16
+ 288 0056 181C     	 mov r0,r3
+ 289 0058 FFF7FEFF 	 bl DIGITAL_IO_ToggleOutput
+  53:../main.c     ****     			  can_data_arr[1] = 2;
+ 290              	 .loc 3 53 0
+ 291 005c 3B1C     	 mov r3,r7
+ 292 005e 0222     	 mov r2,#2
+ 293 0060 5A70     	 strb r2,[r3,#1]
+  54:../main.c     **** 
+  55:../main.c     ****     			  (CAN_NODE_STATUS_t)CAN_NODE_MO_UpdateData(HandlePtr1->lmobj_ptr[0],can_data_arr);
+ 294              	 .loc 3 55 0
+ 295 0062 7B68     	 ldr r3,[r7,#4]
+ 296 0064 DA68     	 ldr r2,[r3,#12]
+ 297 0066 3B1C     	 mov r3,r7
+ 298 0068 101C     	 mov r0,r2
+ 299 006a 191C     	 mov r1,r3
+ 300 006c FFF7FEFF 	 bl CAN_NODE_MO_UpdateData
+  56:../main.c     ****     			 CAN_NODE_MO_Transmit(HandlePtr1->lmobj_ptr[0]);
+ 301              	 .loc 3 56 0
+ 302 0070 7B68     	 ldr r3,[r7,#4]
+ 303 0072 DB68     	 ldr r3,[r3,#12]
+ 304 0074 181C     	 mov r0,r3
+ 305 0076 FFF7FEFF 	 bl CAN_NODE_MO_Transmit
+ 306 007a 02E0     	 b .L12
+ 307              	.L15:
+  57:../main.c     **** 
+  58:../main.c     ****     		  }
+  59:../main.c     **** 
+  60:../main.c     **** 
+  61:../main.c     **** 
+  62:../main.c     **** 
+  63:../main.c     ****   else
+  64:../main.c     ****   {
+  65:../main.c     **** 	  can_data_arr[1] = 0;
+ 308              	 .loc 3 65 0
+ 309 007c 3B1C     	 mov r3,r7
+ 310 007e 0022     	 mov r2,#0
+ 311 0080 5A70     	 strb r2,[r3,#1]
+ 312              	.L12:
+  66:../main.c     ****   }
+  67:../main.c     **** }
+ 313              	 .loc 3 67 0
+ 314 0082 BD46     	 mov sp,r7
+ 315 0084 02B0     	 add sp,sp,#8
+ 316              	 
+ 317 0086 80BD     	 pop {r7,pc}
+ 318              	.L17:
+ 319              	 .align 2
+ 320              	.L16:
+ 321 0088 00000000 	 .word CAN_NODE_0
+ 322 008c 00000000 	 .word DIGITAL_IO_0
+ 323 0090 00000000 	 .word DIGITAL_IO_2
+ 324 0094 00000000 	 .word DIGITAL_IO_1
+ 325 0098 00000000 	 .word DIGITAL_IO_3
+ 326              	 .cfi_endproc
+ 327              	.LFE200:
+ 329              	 .text
+ 330              	.Letext0:
+ 331              	 .file 4 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 332              	 .file 5 "c:\\infineon\\tools\\dave ide\\4.5.0.202105191637\\eclipse\\arm-gcc-49\\arm-none-eabi\\include\\stdint.h"
+ 333              	 .file 6 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/CMSIS/Infineon/XMC1400_series/Include/XMC1400.h"
+ 334              	 .file 7 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc/xmc_can.h"
+ 335              	 .file 8 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/GLOBAL_CAN/global_can.h"
+ 336              	 .file 9 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/XMCLib/inc/xmc1_gpio.h"
+ 337              	 .file 10 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/CAN_NODE/can_node.h"
+ 338              	 .file 11 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DAVE.h"
+ 339              	 .file 12 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/CMSIS/Include/cmsis_gcc.h"
+ 340              	 .file 13 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Libraries/CMSIS/Infineon/XMC1400_series/Include/system_XMC1400.h"
+ 341              	 .file 14 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/CAN_NODE/can_node_extern.h"
+ 342              	 .file 15 "C:/Infineon/Tools/DAVE IDE/4.5.0.202105191637/eclipse/workspace/can_new_pushbutton/Dave/Generated/DIGITAL_IO/digital_io_extern.h"
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+    {standard input}:18     .text.XMC_GPIO_ToggleOutput:00000000 $t
+    {standard input}:22     .text.XMC_GPIO_ToggleOutput:00000000 XMC_GPIO_ToggleOutput
+    {standard input}:57     .text.XMC_GPIO_ToggleOutput:00000020 $d
+    {standard input}:62     .text.XMC_GPIO_GetInput:00000000 $t
+    {standard input}:66     .text.XMC_GPIO_GetInput:00000000 XMC_GPIO_GetInput
+    {standard input}:104    .text.DIGITAL_IO_ToggleOutput:00000000 $t
+    {standard input}:108    .text.DIGITAL_IO_ToggleOutput:00000000 DIGITAL_IO_ToggleOutput
+    {standard input}:142    .text.DIGITAL_IO_GetInput:00000000 $t
+    {standard input}:146    .text.DIGITAL_IO_GetInput:00000000 DIGITAL_IO_GetInput
+    {standard input}:181    .text.main:00000000 $t
+    {standard input}:186    .text.main:00000000 main
+    {standard input}:223    .text.IRQ0_Handler:00000000 $t
+    {standard input}:228    .text.IRQ0_Handler:00000000 IRQ0_Handler
+    {standard input}:321    .text.IRQ0_Handler:00000088 $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+DAVE_Init
+CAN_NODE_MO_UpdateData
+CAN_NODE_MO_Transmit
+CAN_NODE_0
+DIGITAL_IO_0
+DIGITAL_IO_2
+DIGITAL_IO_1
+DIGITAL_IO_3
